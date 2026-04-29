@@ -1,13 +1,14 @@
 # Personal agent skills
 
-One **Claude Code plugin** in a flat repo: manifest at `.claude-plugin/plugin.json` and skills under `skills/`. The layout matches the [plugin directory structure](https://code.claude.com/en/plugins-reference#plugin-directory-structure) (manifest only inside `.claude-plugin/`; everything else at the **repository root** next to it).
+One **Claude Code plugin** in a flat repo: **catalog** at `.claude-plugin/marketplace.json`, **plugin** manifest at `.claude-plugin/plugin.json`, and skills under `skills/`. Layout matches [plugin directory structure](https://code.claude.com/en/plugins-reference#plugin-directory-structure) (only manifests inside `.claude-plugin/`; `skills/` lives at repo root next to it).
 
 ## Layout
 
-| Path | Role |
-|------|------|
-| `.claude-plugin/plugin.json` | Plugin metadata (`name`, `version`, `description`, `author`, `keywords`, …). The plugin’s public id for installs is the `name` field (here: **`skills`**). |
-| `skills/<skill-name>/SKILL.md` | One folder per skill; each `SKILL.md` uses YAML frontmatter (`name`, `description`, …). |
+| Path                              | Role                                                                                                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `.claude-plugin/marketplace.json` | **Catalog:** `name`, required `owner: { "name" }`, `plugins[]` with `name`, `source` (e.g. `"./"`), `description`. Not the same file as `plugin.json`. |
+| `.claude-plugin/plugin.json`      | **Plugin:** `name`, `version`, `description`, `author`, `keywords`, … Install id is the plugin `name` (here: **`skills`**).                            |
+| `skills/<skill-name>/SKILL.md`    | One folder per skill; each `SKILL.md` uses YAML frontmatter (`name`, `description`, …).                                                                |
 
 Optional later: `agents/`, `commands/`, `hooks/`, `.mcp.json`, etc. at the same level as `skills/` (still plugin root, not inside `.claude-plugin/`).
 
@@ -28,7 +29,7 @@ Example: this repo’s git skill → `skills/git-branch/`. See [Cursor skills](h
 
 ### If this repo has **no** `marketplace.json`
 
-`claude plugin marketplace add your-user/your-repo` expects a catalog at `.claude-plugin/marketplace.json`. Without it, add a **minimal** catalog in the same repo so the repo stays “one plugin, flat skills,” but still registers as a marketplace:
+`claude plugin marketplace add iammattburns/skills` expects a catalog at `.claude-plugin/marketplace.json`. Without it, add a **minimal** catalog in the same repo so the repo stays “one plugin, flat skills,” but still registers as a marketplace:
 
 ```json
 {
@@ -54,9 +55,11 @@ Then:
 /reload-plugins
 ```
 
+Use the **top-level** `name` from `marketplace.json` after `@` (this repo uses **`iammattburns-skills`**—change it in one place if you rename the marketplace).
+
 CLI equivalents: `claude plugin marketplace add …`, `claude plugin install skills@your-marketplace-id`.
 
-Pin a branch: `your-user/your-repo@main`. Refresh after pushes: `/plugin marketplace update your-marketplace-id`.
+Pin a branch: `your-user/your-repo@main`. Refresh after pushes: `/plugin marketplace update iammattburns-skills` (or whatever your catalog `name` is).
 
 ### Local checkout
 
@@ -77,6 +80,6 @@ Pin a branch: `your-user/your-repo@main`. Refresh after pushes: `/plugin marketp
 
 ## References
 
-- [Plugins reference](https://code.claude.com/en/plugins-reference) — `plugin.json`, `skills/`, discovery rules  
-- [Plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces) — `marketplace.json`, `source`, installs  
+- [Plugins reference](https://code.claude.com/en/plugins-reference) — `plugin.json`, `skills/`, discovery rules
+- [Plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces) — `marketplace.json`, `source`, installs
 - [Discover and install plugins](https://code.claude.com/docs/en/discover-plugins) — `/plugin`, scopes, reload

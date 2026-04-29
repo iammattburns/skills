@@ -1,18 +1,26 @@
 {
-  "name": "skills",
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "iammattburns-skills",
   "version": "1.0.0",
-  "description": "My personal skills for Claude Code",
-  "author": {
+  "description": "Personal Claude Code skills marketplace",
+  "owner": {
     "name": "Matt Burns"
   },
-  "keywords": [
-    "frontend",
-    "react",
-    "typescript",
-    "design-system",
-    "jira",
-    "git",
-    "workflow",
-    "ai"
+  "plugins": [
+    {
+      "name": "skills",
+      "description": "My personal skills for Claude Code",
+      "source": "./",
+      "keywords": [
+        "frontend",
+        "react",
+        "typescript",
+        "design-system",
+        "jira",
+        "git",
+        "workflow",
+        "ai"
+      ]
+    }
   ]
 }
