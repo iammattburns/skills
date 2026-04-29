@@ -27,6 +27,10 @@ Example: this repo’s git skill → `skills/git-branch/`. See [Cursor skills](h
 
 ## Claude Code
 
+**Marketplace ≠ installed plugin.** `/plugin marketplace add …` only registers the catalog (`0 plugins` until you install). You must run **`/plugin install skills@iammattburns-skills`** (plugin name from `plugin.json`, `@` + marketplace `name` from `marketplace.json`), then **`/reload-plugins`**. In Discover, pick the **skills** plugin and install it to user or project scope if you prefer the UI.
+
+After install, skills are **namespaced** by the plugin id, e.g. **`/skills:git-branch`** (not plain `/git-branch`). See [Discover and install plugins](https://code.claude.com/docs/en/discover-plugins).
+
 ### If this repo has **no** `marketplace.json`
 
 `claude plugin marketplace add iammattburns/skills` expects a catalog at `.claude-plugin/marketplace.json`. Without it, add a **minimal** catalog in the same repo so the repo stays “one plugin, flat skills,” but still registers as a marketplace:
