@@ -10,10 +10,4 @@ tree resolving dependencies between decisions one by one.
 If a question can be answered by exploring the codebase, explore
 the codebase instead.
 
-Ask 3 to 5 questions at a time so the conversation stays answerable.
-For each question, include the assumption being tested and your
-recommended answer.
-
-After each round, summarize the decisions made, open risks, and the
-next branch of the decision tree. Stop when the remaining risks are
-explicitly accepted, deferred, or resolved.
+For each question, provide your recommended answer.

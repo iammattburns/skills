@@ -1,7 +1,7 @@
 ---
 name: git-branch
 description: >-
-  Guides Git branching: create and switch branches, naming conventions (feature/,
+  Guides Git branching: create and switch branches, naming conventions (feat/,
   fix/, chore/), list and clean up branches, sync with upstream, and avoid
   destructive operations without confirmation. Use when the user asks about
   branches, wants a new branch, or needs help untangling local branch state.
@@ -23,15 +23,14 @@ Prefer **linear history** off the team’s agreed default branch unless the user
 
 ## Naming conventions (suggest unless the user specifies)
 
-| Prefix | Use for |
-|--------|---------|
-| `codex/` | Codex-created branches unless the user or repo convention says otherwise |
-| `feature/` | New user-facing behavior |
-| `fix/` | Bug fixes |
+| Prefix   | Use for                   |
+| -------- | ------------------------- |
+| `feat/`  | New user-facing behavior  |
+| `fix/`   | Bug fixes                 |
 | `chore/` | Tooling, deps, formatting |
-| `docs/` | Documentation only |
+| `docs/`  | Documentation only        |
 
-Use lowercase and hyphens: `codex/oauth-refresh-token`.
+Use lowercase and hyphens: `feat/oauth-refresh-token`.
 
 ## List and inspect
 
