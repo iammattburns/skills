@@ -3,8 +3,9 @@
 One flat personal skills plugin with dual agent support:
 
 - **Claude Code** uses `.claude-plugin/marketplace.json` and `.claude-plugin/plugin.json`.
-- **Codex** uses `.codex-plugin/plugin.json`.
-- Both hosts read the same skill folders under `skills/`.
+- **Codex direct plugin installs** can use `.codex-plugin/plugin.json`.
+- **Codex marketplace installs** use `.agents/plugins/marketplace.json`, which points at the mirrored plugin under `plugins/skills/`.
+- Claude Code and direct Codex installs read `skills/`; Codex marketplace installs read `plugins/skills/skills/`.
 
 ## Layout
 
@@ -12,8 +13,11 @@ One flat personal skills plugin with dual agent support:
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `.claude-plugin/marketplace.json` | **Catalog:** `name`, required `owner: { "name" }`, `plugins[]` with `name`, `source` (e.g. `"./"`), `description`. Not the same file as `plugin.json`. |
 | `.claude-plugin/plugin.json`      | **Plugin:** `name`, `version`, `description`, `author`, `keywords`, … Install id is the plugin `name` (here: **`skills`**).                            |
-| `.codex-plugin/plugin.json`       | **Codex plugin:** manifest and UI metadata for Codex. References the shared `skills/` directory.                                                       |
-| `skills/<skill-name>/SKILL.md`    | One folder per skill; each `SKILL.md` uses YAML frontmatter (`name`, `description`, …).                                                                |
+| `.codex-plugin/plugin.json`       | **Codex direct plugin:** manifest and UI metadata for Codex. References the root `skills/` directory.                                                  |
+| `.agents/plugins/marketplace.json` | **Codex marketplace:** catalog that exposes the nested `skills` plugin to `codex plugin add`.                                                          |
+| `plugins/skills/.codex-plugin/plugin.json` | **Codex marketplace plugin:** installable plugin package used when this repo is added as a Codex marketplace.                                  |
+| `skills/<skill-name>/SKILL.md`    | Root skill source used by Claude Code and direct Codex plugin installs.                                                                                |
+| `plugins/skills/skills/<skill-name>/SKILL.md` | Mirrored skill source used by Codex marketplace installs. Keep this in sync with `skills/`.                                               |
 
 Optional later: `agents/`, `commands/`, `hooks/`, `.mcp.json`, etc. at the same level as `skills/` (still plugin root, not inside `.claude-plugin/`).
 
@@ -91,17 +95,30 @@ its own UI metadata but points at the same shared skills directory:
 }
 ```
 
-For a local development install, use the Codex app plugin flow for this checkout. If you later want
-this repo to appear in a Codex marketplace, move or mirror this plugin under a marketplace
-`plugins/skills/` directory and add a marketplace entry whose `source.path` is `./plugins/skills`.
+For a marketplace install from GitHub:
+
+```bash
+codex plugin marketplace add iammattburns/skills
+codex plugin add skills@iammattburns-skills
+```
+
+After pushing updates, refresh and reinstall:
+
+```bash
+codex plugin marketplace upgrade iammattburns-skills
+codex plugin add skills@iammattburns-skills
+```
+
+Start a new Codex thread after reinstalling so the updated skill list is loaded.
 
 ---
 
 ## Adding a skill
 
 1. Create `skills/<skill-name>/SKILL.md` with frontmatter (`name`, `description`, …) and the body instructions.
-2. Keep both `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` versions aligned when you want a visible release bump.
-3. Commit and push; bump `version` in plugin manifests when you want installs to pick up a new release explicitly, or rely on git SHA behavior per [version management](https://code.claude.com/en/plugins-reference#version-management).
+2. Mirror the same skill folder under `plugins/skills/skills/<skill-name>/` for Codex marketplace installs.
+3. Keep `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, and `plugins/skills/.codex-plugin/plugin.json` versions aligned when you want a visible release bump.
+4. Commit and push; bump `version` in plugin manifests when you want installs to pick up a new release explicitly, or rely on git SHA behavior per [version management](https://code.claude.com/en/plugins-reference#version-management).
 
 ---
 

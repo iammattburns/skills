@@ -1,0 +1,33 @@
+{
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "Matt Burns' personal agent skills for Codex and Claude Code",
+  "author": {
+    "name": "Matt Burns"
+  },
+  "skills": "./skills/",
+  "keywords": [
+    "frontend",
+    "react",
+    "typescript",
+    "design-system",
+    "jira",
+    "git",
+    "workflow",
+    "ai"
+  ],
+  "interface": {
+    "displayName": "Personal Skills",
+    "shortDescription": "Personal workflow skills for coding agents.",
+    "longDescription": "A small collection of personal skills for Git workflows, branch safety, and rigorous design review conversations.",
+    "developerName": "Matt Burns",
+    "category": "Productivity",
+    "capabilities": ["Workflow", "Code", "Planning"],
+    "defaultPrompt": [
+      "Help me create a safe Git branch.",
+      "Grill me on this implementation plan.",
+      "Check my branch before I switch."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
