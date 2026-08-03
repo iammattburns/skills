@@ -31,7 +31,7 @@
       "Check my branch before I switch."
     ],
     "brandColor": "#5ce6c6",
-    "composerIcon": "https://iammattburns.dev/favicon-196x196.png",
-    "logo": "https://iammattburns.dev/favicon-196x196.png"
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
   }
 }
