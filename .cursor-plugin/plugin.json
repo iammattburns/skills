@@ -1,5 +1,6 @@
 {
   "name": "skills",
+  "displayName": "Personal Skills",
   "version": "1.0.0",
   "description": "Matt Burns' personal agent skills for Cursor",
   "author": {
