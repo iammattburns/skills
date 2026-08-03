@@ -28,6 +28,7 @@
       "Grill me on this implementation plan.",
       "Check my branch before I switch."
     ],
-    "brandColor": "#2563EB"
+    "brandColor": "#5ce6c6",
+    "icon": "https://iammattburns.dev/favicon-196x196.png"
   }
 }
