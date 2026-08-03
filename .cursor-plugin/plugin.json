@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "displayName": "Personal Skills",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Matt Burns' personal agent skills for Cursor",
   "author": {
     "name": "Matt Burns"
@@ -18,6 +18,6 @@
     "workflow",
     "ai"
   ],
-  "logo": "https://raw.githubusercontent.com/iammattburns/skills/main/assets/logo.svg",
+  "logo": "https://raw.githubusercontent.com/iammattburns/skills/main/assets/logo.png",
   "skills": "./skills/"
 }
