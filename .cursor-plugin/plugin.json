@@ -18,6 +18,6 @@
     "workflow",
     "ai"
   ],
-  "logo": "./assets/logo.png",
+  "logo": "https://raw.githubusercontent.com/iammattburns/skills/main/assets/logo.png",
   "skills": "./skills/"
 }
