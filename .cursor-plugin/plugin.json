@@ -1,0 +1,22 @@
+{
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "Matt Burns' personal agent skills for Cursor",
+  "author": {
+    "name": "Matt Burns"
+  },
+  "homepage": "https://iammattburns.dev",
+  "repository": "https://github.com/iammattburns/skills",
+  "keywords": [
+    "frontend",
+    "react",
+    "typescript",
+    "design-system",
+    "jira",
+    "git",
+    "workflow",
+    "ai"
+  ],
+  "logo": "assets/logo.png",
+  "skills": "./skills/"
+}
