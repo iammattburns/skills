@@ -23,12 +23,15 @@
     "developerName": "Matt Burns",
     "category": "Productivity",
     "capabilities": ["Workflow", "Code", "Planning"],
+    "repository": "https://github.com/iammattburns/skills",
+    "websiteURL": "https://iammattburns.dev",
     "defaultPrompt": [
       "Help me create a safe Git branch.",
       "Grill me on this implementation plan.",
       "Check my branch before I switch."
     ],
     "brandColor": "#5ce6c6",
-    "icon": "https://iammattburns.dev/favicon-196x196.png"
+    "composerIcon": "https://iammattburns.dev/favicon-196x196.png",
+    "logo": "https://iammattburns.dev/favicon-196x196.png"
   }
 }
