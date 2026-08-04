@@ -1,11 +1,17 @@
 {
   "name": "skills",
-  "version": "1.0.0",
+  "displayName": "Personal Skills",
+  "version": "1.0.1",
   "description": "My personal skills for Claude Code",
   "author": {
-    "name": "Matt Burns"
+    "name": "Matt Burns",
+    "email": "hello@iammattburns.co.uk",
+    "url": "https://github.com/iammattburns"
   },
   "skills": ["./skills/"],
+  "homepage": "https://github.com/iammattburns/skills",
+  "repository": "https://github.com/iammattburns/skills",
+
   "keywords": [
     "frontend",
     "react",
