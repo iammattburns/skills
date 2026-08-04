@@ -9,7 +9,8 @@
   "plugins": [
     {
       "name": "skills",
-      "description": "My personal skills for Claude Code",
+      "displayName": "Personal Skills",
+      "description": "My personal skills for Claude Code.",
       "source": "./",
       "keywords": [
         "frontend",
